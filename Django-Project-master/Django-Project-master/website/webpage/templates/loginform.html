@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My page</title>
+	<link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<p id="h-1">Login Form</p><hr size="10px" color="white">
+	<form enctype="multipart/form-data" method="post" action="/submit/">
+		{% csrf_token %}
+		<div id="form-items">
+			<div class="form-item">
+				<div class="ques">Username</div>
+				<div class="mydot">:</div>
+			</div>
+			<div class="input-div">
+				<input name="uname" id="form-input" type="text">
+			</div>
+			<br>
+			<div class="form-item">
+				<div class="ques">Password</div>
+				<div class="mydot">:</div>
+			</div>
+			<div class="input-div">
+				<input name="upassword" id="form-input" type="password">
+			</div>
+			<br>
+			Logout : <input class="login-button" id="form-submit" type="submit" value="Login">
+		</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy Online</title>
+    <link href="{% static 'css/css.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/bootstrap-4.0.0.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    {% if authen == 1 %}
+    <div class="nav"> 
+        <img id="brandlogo" src="{% static 'css/images/BrandLogo.svg' %}" alt="Error"/>
+        <a href="/home/" class="nav-links">Home</a>
+        <a href="#" class="nav-links">Products</a>
+        <a href="#" class="nav-links">Club</a>
+        <a href="#" class="nav-links">Our Reach</a>
+        <a href="#" class="nav-links">About us</a>
+        <div id="account" class="dropdown show">
+            <div class="dropdown show col-xl-11">
+                    <a id="account-name" class="btn btn-lg dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Account </a>
+                    <div id="account-menu" class="dropdown-menu">
+                        {% if authen == 1 %}
+                        <h6 class="dropdown-header">Welcome {{data.fname}}</h6>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="/cart/">Your Cart</a>
+                        <a class="dropdown-item" href="#">Your Orders</a>
+                        <a class="dropdown-item" href="#">Account Settings</a>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                        {% else %}
+                        <h6 class="dropdown-header">Your account</h6>
+                        <div class="dropdown-divider">
+                        </div>
+                        <a class="dropdown-item" href="/register/">Register/SignUp</a>
+                        <a class="dropdown-item" href="/login/">Login</a>
+                        {% endif %}
+                    </div>
+            </div>
+        </div>
+        </div>
+    <h1>Your Cart :</h1><hr color="black" size="20px">
+        {% for item in items %} 
+            {% for i in productdata %}
+                {% if item == i.mycusid %}
+                    <h1>
+                        Product is : {{ i.p_name }}<br>
+                        Price is : {{ i.p_price }}
+                    </h1><br><br>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        <a href="/remove/">Remove</a>
+    {% else %}
+    <h1>Please login/signup.</h1>
+    {% endif %}
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4.0.0.js' %}"></script>
+</body>
+</html>

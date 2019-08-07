@@ -1,0 +1,96 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style website</title>
+<link href="{% static '/css/css.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/bootstrap-4.0.0.css' %}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Playball&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/alex-brush:n4:default;aclonica:n4:default;aguafina-script:n4:default;allura:n4:default;almendra:n4:default;annie-use-your-telescope:n4:default;cabin-sketch:n4,n7:default;dancing-script:n4:default;italianno:n4:default;berkshire-swash:n4:default;arizonia:n4:default.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="nav"> 
+        <img id="brandlogo" src="{% static 'css/images/BrandLogo.svg' %}" alt="Error"/>
+        <a href="/home/" class="nav-links">Home</a>
+        <a href="#product-grid" class="nav-links">Products</a>
+        <a href="#" class="nav-links">Club</a>
+        <a href="#" class="nav-links">Our Reach</a>
+        <a href="#" class="nav-links">About us</a>
+    <div id="account" class="dropdown show">
+        <div class="dropdown show col-xl-11">
+                <a id="account-name" class="btn btn-lg dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Account </a>
+                <div id="account-menu" class="dropdown-menu">
+                    {% if authen == 1 %}
+                    <h6 class="dropdown-header">Welcome {{data.fname}}</h6>
+                    <div class="dropdown-divider">
+                    </div>
+                    <a class="dropdown-item" href="/cart/">Your Cart</a>
+                    <a class="dropdown-item" href="#">Your Orders</a>
+                    <a class="dropdown-item" href="#">Account Settings</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                    {% else %}
+                    <h6 class="dropdown-header">Your account</h6>
+                    <div class="dropdown-divider">
+                    </div>
+                    <a class="dropdown-item" href="/register/">Register/SignUp</a>
+                    <a class="dropdown-item" href="/login/">Login</a>
+                    {% endif %}
+                </div>
+        </div>
+    </div>
+    </div>
+    <div id="slider-1">
+    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel" data-interval="2500" style="background-color: grey">
+        <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel" data-interval="2500" style="background-color: grey">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active slider-img">
+                    
+                    <img id="slider-img-1" class="img-fluid d-block mx-auto" src="../static/css/images/slider-img-1.jpg" alt="First slide">
+                    <div class="carousel-caption">
+                        <h5 class="slider-h" id="slider-h-1">STYLE GENRE</h5>
+                        <p id="slider-t-1">Style your Fashion</p>
+                    </div>
+                </div>
+                <div class="carousel-item slider-img">
+                    <img class="img-fluid d-block mx-auto" src="../static/css/images/slider-img-2.jpg" alt="Second slide">
+                    <div class="carousel-caption">
+						<h5 style="color: white; font-family: Consolas; text-shadow: 10px 10px black;" class="slider-h">Fashion</h5><h5 class="slider-h" id="slider-h-2"><u>is the new language.</u></h5>
+                    </div>
+                </div>
+                <div class="carousel-item slider-img">
+                    <img class="img-fluid d-block mx-auto myfill" src="../static/css/images/slider-img-3.jpg" alt="Third slide">
+                    <div class="carousel-caption">
+                        <h5 class="slider-h" id="slider-h-3">Fancy Wardrobe</h5>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+        </div>
+    </div>
+</div>
+    <section id="product-grid">
+        <div id="Our-categories">
+		<u>Our Categories</u>
+		</div>
+        <div class="product-grid-images"><img class="img-fluid grid-images" src="../static/css/images/grid-img-1.jpg" alt=""><a class="product-grid-text nav-links" href="/buy/1/">Topwear</a></div>
+        <div class="product-grid-images"><img class="img-fluid grid-images" src="../static/css/images/grid-img-2.jpg" alt=""><a class="product-grid-text nav-links" href="/buy/2/">Bottomwear</a></div>
+        <div class="product-grid-images"><img class="img-fluid grid-images" src="../static/css/images/grid-img-3.jpg" alt=""><a class="product-grid-text nav-links" href="/buy/3/">Footwear</a></div>
+        <div class="product-grid-images"><img class="img-fluid grid-images" src="../static/css/images/grid-img-4.jpg" alt=""><a class="product-grid-text nav-links" href="/buy/4/">Sunglasses</a></div>
+        <div class="product-grid-images"><img class="img-fluid grid-images" src="../static/css/images/grid-img-5.jpg" alt=""><a class="product-grid-text nav-links" href="/buy/5/">Watches</a></div>
+        <div class="product-grid-images"><img class="img-fluid grid-images" src="../static/css/images/grid-img-6.jpg" alt=""><a class="product-grid-text nav-links" href="/buy/6/">Frangnance</a></div>
+	</section>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-4.0.0.js' %}"></script>
+</body>
+</html>
